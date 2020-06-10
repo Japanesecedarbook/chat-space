@@ -1,0 +1,177 @@
+* {
+  box-sizing: border-box;
+}
+
+.wrapper{
+  display: flex;
+  .Side-bar{
+    height: 100vh;
+    width: 300px;
+    background-color: #253141;
+    &__user-name{
+      height: 100px;
+      display: flex;
+      align-items: center;
+      background-color: #253141;
+      padding: 0 20px;
+      .Top-items{
+        height: 20px;
+        width: 260px;
+        display: flex;
+        justify-content: space-between;
+        &__name{
+          font-size: 16px;
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          font-weight: bold;
+          justify-content: right;
+        }
+        .Icon{
+          width: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          &__edit{
+            margin-right: 5px;  
+            color: #ffffff;
+          }
+          &__cog{
+            color: #ffffff;
+          }
+        }
+      }
+    }
+    &__group-list{
+      height: calc(100vh - 100px);
+      background-color: #2f3e51;
+      padding: 0 20px;
+      .Side-items{
+        padding: 20px 0 40px;
+        &__group-name{
+          color: #ffffff;
+          font-size: 15px;
+          margin-bottom: 5px;
+        }
+        &__new-message{
+          font-size: 11px;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+
+  .Main-chat{
+    height: 100vh;
+    width: calc(100vw - 300px);
+    background-color: #ffffff;
+    &__group-info{
+      height: 100px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #eeeeee;
+      .Info-items{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 40px;
+        &__left-item{
+          .Group-member{
+            font-size: 20px;
+            margin: 35px 0 15px;
+            color: #333333;
+          }
+          .Member-list{
+            font-size: 12px;
+            color: #999999;
+            display: flex;
+            list-style: none;
+            &__member{
+              margin-left: 5px;
+            }
+          }
+        }
+        &__edit-btn{
+          height: 40px;
+          width: 72px;
+          margin-top: 28px;
+          padding: 0 20px;
+          font-size: 16px;
+          color: #38aef0;
+          border: 1px solid #38aef0;
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+        }
+      }
+    }
+    &__message-list{
+      height: calc(100vh - 100px - 90px);
+      background-color: #fafafa;
+      padding: 35px 0 0 40px;
+      .Message-items{
+        margin-bottom: 46px;
+        &__name-box{
+          display: flex;
+          margin-bottom: 12px;
+          &--name{
+            font-size: 16px;
+            color: #333333;
+            font-weight: bold;
+            margin-right: 5px;
+          }
+          &--posting-time{
+            font-size: 12px;
+            color: #999999;
+          }
+        }
+        &__text{
+          font-size: 14px;
+          color: #434A54;
+        }
+      }
+    }
+    &__message-form{
+      height: 90px;
+      background-color: #d2d2d2;
+      padding: 20px 40px;
+      .Form{
+        display: flex;
+        .Form-items{
+          width: 100%;
+          display: flex;
+          position: relative;
+          &__message{
+            background-color: #ffffff;
+            height: 50px;
+            width: 100%;
+            padding: 0 40px 0 10px;
+            font-size: 16px;
+            color: #434A54;
+            border-style: none;
+          }
+          &__image{
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            font-size: 25px;
+            .File{
+              display: none;
+            }
+          }
+        }
+        .Send-btn{
+          height: 50px;
+          font-size: 16px;
+          color: #ffffff;
+          background-color: #38aef0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          padding: 0 30px;
+          margin-left: 15px;
+          border-style: none;
+        }
+      }
+    }
+  }
+}
