@@ -1,0 +1,23 @@
+.Side-bar
+  .Side-bar__user-name
+    .Top-items
+      .Top-items__name
+        user name
+      .Icon
+        = link_to "#", class: "Icon__edit" do
+          = icon('fas', 'edit',class:  "Icon__edit--btn")
+          %span<>
+        = link_to "#", class: "Icon__cog" do
+          = icon('fas', 'cog', class:  "Icon__cog--btn")
+          %span<>
+  .Side-bar__group-list
+    .Side-items
+      .Side-items__group-name
+        group name1
+      .Side-items__new-message
+        おはようございます
+    .Side-items
+      .Side-items__group-name
+        group name2
+      .Side-items__new-message
+        new message2
