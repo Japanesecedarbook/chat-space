@@ -4,20 +4,17 @@
       .Top-items__name
         = current_user.name
       .Icon
-        = link_to "#" do
+        = link_to new_group_path do
           = icon('fas', 'edit',class: "Icon__edit")
           %span<>
         = link_to edit_user_path(current_user) do
           = icon('fas', 'cog',class: "Icon__cog")
           %span<>
   .Side-bar__group-list
-    .Side-items
-      .Side-items__group-name
-        group name1
-      .Side-items__new-message
-        おはようございます
-    .Side-items
-      .Side-items__group-name
-        group name2
-      .Side-items__new-message
-        new message2
+    -  current_user.groups.each do |group|
+      .Side-items
+        = link_to '#' do
+          .Side-items__group-name
+            = group.name
+          .Side-items__new-message
+            メッセージはまだありません
