@@ -3,37 +3,24 @@
     .Info-items
       .Info-items__left-item
         .Group-member
-          group name1
+          = @group[:name]
         %ul.Member-list
           Member :
-          %li.Member-list__member
-            username
-          %li.Member-list__member
-            username2
-      = link_to "#", class: "Info-items__edit-btn" do
+          - @group.users.each do |user|
+            %li.Member-list__member
+              = user.name
+
+      = link_to edit_group_path(@group), class: "Info-items__edit-btn" do
         Edit
+
   .Main-chat__message-list
-    .Message-items
-      .Message-items__name-box
-        .Message-items__name-box--name
-          user name
-        .Message-items__name-box--posting-time
-          2020年06月09日 12時06分
-      .Message-items__text
-        おはよう
-    .Message-items
-      .Message-items__name-box
-        .Message-items__name-box--name
-          user name2
-        .Message-items__name-box--posting-time
-          2020年06月09日 12時07分
-      .Message-items__text
-        おはようございます
+    = render @messages
+
   .Main-chat__message-form
-    %form.Form
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .Form-items
-        %input.Form-items__message{"placeholder": "type a message","type": "text"}
-        %label{class: "Form-items__image"}
-          = icon('far', 'image')
-          %input{type: "file",class: "File"}
-      %input.Send-btn{"type": "submit", "value": "Send"}
+        = f.text_field :text, class: 'Form-items__message', placeholder: 'type a message'
+        = f.label :image, class: 'Form-items__image' do
+          = icon('far', 'image', class: 'Form-items__image-icon')
+          = f.file_field :image, class: 'File'
+      = f.submit 'Send', class: 'Send-btn'
