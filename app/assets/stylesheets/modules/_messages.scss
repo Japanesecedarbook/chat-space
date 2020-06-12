@@ -107,6 +107,7 @@
       height: calc(100vh - 100px - 90px);
       background-color: #fafafa;
       padding: 35px 0 0 40px;
+      overflow: scroll;
       .Message-items{
         margin-bottom: 46px;
         &__name-box{
@@ -123,9 +124,14 @@
             color: #999999;
           }
         }
-        &__text{
-          font-size: 14px;
-          color: #434A54;
+        .Message{
+          &__text{
+            font-size: 14px;
+            color: #434A54;
+          }
+          &__image{
+            height: 300px;
+          }
         }
       }
     }
@@ -174,4 +180,7 @@
       }
     }
   }
+}
+.field_with_errors {
+  display: contents;
 }
