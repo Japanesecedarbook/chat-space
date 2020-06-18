@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(message){
     if(message.image&&message.text){
-      let html =`<div class="Message-items">
+      let html =`<div class="Message-items" data-message-id=${message.id}>
                     <div class="Message-items__name-box">
                       <div class="Message-items__name-box--name">
                         ${message.user_name}
@@ -20,23 +20,23 @@ $(function(){
                 return html;
     }
     if(message.image){
-         let html =`<div class="Message-items">
-                    <div class="Message-items__name-box">
-                      <div class="Message-items__name-box--name">
-                        ${message.user_name}
+      let html =`<div class="Message-items" data-message-id=${message.id}>
+                      <div class="Message-items__name-box">
+                        <div class="Message-items__name-box--name">
+                          ${message.user_name}
+                        </div>
+                        <div class="Message-items__name-box--posting-time">
+                          ${message.created_at}
+                        </div>
                       </div>
-                      <div class="Message-items__name-box--posting-time">
-                        ${message.created_at}
+                      <div class="Message">
+                        <img class="Message__image" src="${message.image}">
                       </div>
-                    </div>
-                    <div class="Message">
-                      <img class="Message__image" src="${message.image}">
-                    </div>
-                  </div>`
-                return html;
+                    </div>`
+                  return html;
     }
     else{
-      let html =`<div class="Message-items">
+      let html =`<div class="Message-items" data-message-id=${message.id}>
                   <div class="Message-items__name-box">
                     <div class="Message-items__name-box--name">
                       ${message.user_name}
@@ -52,10 +52,9 @@ $(function(){
                   </div>
                 </div>`
               return html;
-
     };
-
   }
+
   $('.Form').on('submit', function(e){
     e.preventDefault();
     let formData = new FormData(this);
@@ -77,6 +76,7 @@ $(function(){
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
+      $('.Send-btn').prop("disabled", false);
     });
-  })
-})
+  });
+});
