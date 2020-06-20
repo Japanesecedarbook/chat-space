@@ -46,6 +46,7 @@
       height: calc(100vh - 100px);
       background-color: #2f3e51;
       padding: 0 20px;
+      overflow: scroll;
       .Side-items{
         padding: 20px 0 40px;
         &__group-name{
@@ -183,4 +184,12 @@
 }
 .field_with_errors {
   display: contents;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
